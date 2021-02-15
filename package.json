@@ -1,0 +1,31 @@
+{
+  "name": "klad.me",
+  "version": "1.0.0",
+  "description": "Alex River Own project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyriver/klad.me.git"
+  },
+  "author": "alex river",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexeyriver/klad.me/issues"
+  },
+  "homepage": "https://github.com/alexeyriver/klad.me#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.11.16",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "session-file-store": "^1.5.0"
+  }
+}

@@ -1,0 +1,17 @@
+<nav>
+  {{#if login}}
+
+  <ul>
+    <li><a href="http://localhost:3000/map">Карта</a></li>
+    <li><a href="http://localhost:3000/klad">Мои клады</a></li>
+    <li><a href="http://localhost:3000/history">История</a></li>
+    <li><a href="http://localhost:3000/logout">Выход</a></li>
+  </ul>
+  {{else}}
+  <ul>
+    <li><a href="http://localhost:3000/signin">Войти</a></li>
+    <li><a href="http://localhost:3000/signUp">Регистрация</a></li>
+  </ul>
+
+  {{/if}}
+</nav>
