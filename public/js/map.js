@@ -102,18 +102,18 @@ create.addEventListener('submit', async (e) => {
 
 let creategiftpost= document.getElementById('creategiftpost')
 creategiftpost.addEventListener('submit', async(e)=>{
-  e.preventDefault()
+   e.preventDefault()
   if (arr.length){
   console.log(e.target);
-let {name, description, file,action} = e.target
-console.log(name.value, description, file,action);
+let {name, description, img,action,coord} = e.target
+coord.value=arr[0]
+console.log(coord.value);
+
+var formData = new FormData(creategiftpost);
   const resp = await fetch(action, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'Application/json'
-    },
-    body: JSON.stringify(
-      { name:name.value, description:description.value,file: img.value ,coord: arr[0]})
+    
+    body: formData   // JSON.stringify( { name:name.value, description:description.value,file: img.value ,coord: arr[0]})
   })
   const frontResp = await resp.json()
 }
