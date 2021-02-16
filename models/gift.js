@@ -6,7 +6,9 @@ const Gift = mongoose.model('gifts', {
   description: String,
   location: String,
   img: String,
-  author: { type: Types.ObjectId, ref: 'users' }
-})
+  author: { type: Types.ObjectId, ref: 'users' },
+  flag: { type: Boolean, default: true },
+  done: { type: String, default: 'create'}
+  })
 
 module.exports = Gift;

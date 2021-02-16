@@ -32,7 +32,7 @@ res.json(gift)
 })
 
 router.get('/searchgift',async (req,res)=>{
-  const gift=await Gift.find().populate('author')
+  const gift=await Gift.find({flag:true}).populate('author')
 
   res.json(gift)
 
