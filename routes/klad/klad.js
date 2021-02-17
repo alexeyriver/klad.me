@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
   const gift = await Gift.findById(req.params.id)
   const user = await User.findOne({ email: req.session.email }).populate('recievedGift')
   console.log('klad 16 >>>>>', gift);
-  console.log(!user.recievedGift.find(el => el.id === req.params.id)) //.find(el=>el._id===req.params.id));
+  console.log(!user.recievedGift.find(el => el.id === req.params.id)) 
 
   if (gift && !user.recievedGift.find(el => el.id === req.params.id)) {
     gift.flag = false

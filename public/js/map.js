@@ -30,7 +30,7 @@ async function init() {
     var placemark = new ymaps.Placemark(loc, { 
       balloonContentHeader: group.name ,
       balloonContentBody: `<h4>Автор:${group.author.name}</h4>`+
-      `<h4>Описание: Заблокировано! Нажмите кнопку Взять клад, чтобы получить к нему доступ </h4>` +
+      `<h4> <p>Описание: Заблокировано!</p> Нажмите кнопку Взять клад, чтобы получить к нему доступ </h4>` +
      `<form action="/klad/${group._id}" method="GET"> <button type="submit">Взять клад</button></form>`
     },
       {
@@ -45,16 +45,6 @@ async function init() {
 
   }
 
-  // function createSubMenu (item, collection, j) {
-  //   // Создаем метку.
-  //   var placemark = new ymaps.Placemark(item.center, { balloonContent: item.name });
-
-  //   // Добавляем метку в коллекцию.
-  //   collection.add(placemark);
-
-  //               //Добавляем в наш новый массив метки
-  //   placemarks[item.id] = placemark;
-  // }
 
 }
 

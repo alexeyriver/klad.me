@@ -1,4 +1,4 @@
-
+<div style="flex-direction: column;"  class="klad container">
 <h3>
   Название: {{name}}
 </h3>
@@ -11,3 +11,12 @@
 </p>
 
 <img  src="/{{img}}" alt="klad">
+
+<form action="/route/{{_id}}" name="{{location}}">
+  <button type="submit">Проложить маршрут</button>
+</form>
+
+</div>
+<div class="container" id="map"></div>
+
+<script  src="../js/routeklad.js" type="text/javascript"></script>

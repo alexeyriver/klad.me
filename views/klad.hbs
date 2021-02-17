@@ -1,6 +1,6 @@
  {{#if  recievedGift}}
 {{#each recievedGift }}
-<div id={{_id}}>
+<div style="flex-direction: column;" class="container" id={{_id}}>
   <h3>
     Название: {{name}}
   </h3>
@@ -17,7 +17,7 @@
 </div>
 {{/each}}
 {{else}}
-<h3>
+<h3 class="container">
  У Вас нет активных кладов. Попробуйте их найти на карте!
 </h3>
  {{/if}}
