@@ -16,10 +16,12 @@ coord=e.target.name.split(',')
 coord[0]=Number(coord[0])
 coord[1]=Number(coord[1])
 console.log(coord)
-// let maindiv=document.querySelector('.klad')
-// let mapdiv = document.createElement('div')
-// mapdiv.id='map'
-// maindiv.append(mapdiv)
+ let maindiv=document.querySelector('.klad')
+let mapdiv = document.createElement('div')
+ mapdiv.id='map'
+ mapdiv.className='routemap '
+  document.body.append(mapdiv)
+//  maindiv.append(mapdiv)
 ymaps.ready(init);
 })
 

@@ -5,10 +5,10 @@ let form = document.querySelectorAll('form')
 form.forEach((el) => {
   el.addEventListener('submit', async (e) => {
     e.preventDefault()
-    let {action}=e.target
+    let { action } = e.target
     let kladfeta = await fetch(action)
     let respklad = await kladfeta.json()
-    if(respklad.status){
+    if (respklad.status) {
       let id = action.split('/')
       console.log(id);
       let div = document.getElementById(id[5])
