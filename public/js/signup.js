@@ -6,11 +6,9 @@ form.addEventListener('submit', async (e) => {
     const email = e.target.email.value
     const password = e.target.password.value
     const { action, method } = e.target
-
     const body = {
         name, email, password
     }
-console.log(name,email,password,action,method)
     const response = await fetch(action, {
         method,
         headers: {

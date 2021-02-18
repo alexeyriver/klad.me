@@ -2,13 +2,16 @@
 
 <form id = 'creategiftpost' enctype="multipart/form-data" action="/creategift" method="POST">
   <p>Нажмите на карте точную геопозицию клада. Для удаления нажмите на нее правой кнопкой мыши</p>
-  <div>
-    <p> <input  type="text"  name="name" placeholder="Название"></p>
-<p><textarea cols="30" rows="10"  type="text"  name="description" placeholder="Описание"></textarea></p>
- <p> <input type="file" name="img">
- <input type="hidden" name="coord"></p>
+  
+    <input  type="text"  name="name" placeholder="Название">
+<textarea cols="30" rows="10"  type="text"  name="description" placeholder="Описание"></textarea>
 
-  </div>
+
+  <input type="file"  id="geoFile" name="img">
+  <label for="geoFile"class="file-drop">Загрузить фото</label>
+ <input type="hidden" name="coord">
+
+  
   <div>
     <button type="submit">Создать клад</button>
   </div>

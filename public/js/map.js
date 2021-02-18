@@ -2,13 +2,10 @@ let search = document.getElementById('search')
 let create = document.getElementById('create')
 let latitude, longitude
 navigator.geolocation.getCurrentPosition((geo) => {
-  console.log(geo.coords.latitude)
-  console.log(geo.coords.longitude)
   latitude = geo.coords.latitude
   longitude = geo.coords.longitude
 })
 
-let flag = true    /////// зачем?
 
 console.log('geo')
 async function init() {
@@ -29,8 +26,8 @@ async function init() {
     let loc = group.location.split(',')
     var placemark = new ymaps.Placemark(loc, { 
       balloonContentHeader: group.name ,
-      balloonContentBody: `<h4>Автор:${group.author.name}</h4>`+
-      `<h4> <p>Описание: Заблокировано!</p> Нажмите кнопку Взять клад, чтобы получить к нему доступ </h4>` +
+      balloonContentBody: `<h4 style='color:black; background-color: white'>Автор:${group.author.name}</h4>`+
+      `<h4 style='color:black; background-color: white'> <p style='color:black; background-color: white'>Описание: Заблокировано!</p> Нажмите кнопку Взять клад, чтобы получить к нему доступ </h4>` +
      `<form action="/klad/${group._id}" method="GET"> <button type="submit">Взять клад</button></form>`
     },
       {
@@ -42,9 +39,7 @@ async function init() {
       );
     collection.add(placemark);
     placemarks.push(placemark)
-
   }
-
 
 }
 
@@ -119,7 +114,6 @@ function createfn() {
   myMap.events.add('click', (e) => {
     const coords = e.get('coords');
     arr.push(coords)
-    console.log(coords);
     let myPlacemark = new ymaps.Placemark(coords, {
       balloonContent: '<strong>Метка Вашего клада</strong>',
     }, {
@@ -132,7 +126,6 @@ function createfn() {
     myPlacemark.events.add('contextmenu', function (e) {
       let object = e.get('target');
       arr = arr.filter((el) => el !== object.geometry._coordinates)
-      console.log(object.geometry._coordinates, '===', arr, '====', coords);
       myMap.geoObjects.remove(object)
     })
   })
@@ -141,10 +134,8 @@ function createfn() {
   creategiftpost.addEventListener('submit', async (e) => {
     e.preventDefault()
     if (arr.length) {
-      console.log(e.target);
       let { name, description, img, action, coord } = e.target
       coord.value = arr[0]
-      console.log(coord.value);
 
       let formData = new FormData(creategiftpost);
       const resp = await fetch(action, {
@@ -156,14 +147,12 @@ function createfn() {
       let div = document.getElementById('createorsearch')
       let createClass = document.querySelector('.createclass')
       newDiv.className = 'submitcreate'
-      console.log(frontResp);
       const resphbs2 = await fetch('/template/submitcreate.hbs');
       const hbs2 = await resphbs2.text();
       const template2 = Handlebars.compile(hbs2);
       newDiv.innerHTML = template2(frontResp)
       createClass.remove()
       div.append(newDiv)
-
 
     }
   })

@@ -5,7 +5,6 @@ const Gift = require('../../models/gift')
 router.get('/', async (req, res) => {
   const user = await User.findOne({ email: req.session.email }).populate('recievedGift')
   user.recievedGift = user.recievedGift.filter((el) => el.done == 'create')
-  console.log('klad 8  >>>>>>>>>', user);
   res.render('klad', user)
 })
 
@@ -13,15 +12,11 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const gift = await Gift.findById(req.params.id)
   const user = await User.findOne({ email: req.session.email }).populate('recievedGift')
-  console.log('klad 16 >>>>>', gift);
-  console.log(!user.recievedGift.find(el => el.id === req.params.id)) 
-
   if (gift && !user.recievedGift.find(el => el.id === req.params.id)) {
     gift.flag = false
     user.recievedGift.push(gift)
     await gift.save()
     await user.save()
-
   }
   res.render('kladfindone', gift)
 })

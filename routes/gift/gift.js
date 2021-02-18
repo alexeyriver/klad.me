@@ -15,27 +15,20 @@ const storageConfig = multer.diskStorage({
 });
 const uplooad = multer({ storage: storageConfig }).single('img');
  
-
 router.post('/creategift',uplooad, async (req,res)=>{
 const user = await User.findOne({email:req.session.email})
 let imgurl= req.file.path.split('\\')[2]
 imgurl='uploads/'+imgurl
-console.log(imgurl);
 const gift =  new Gift({name:req.body.name,description: req.body.description, location:req.body.coord, img: imgurl, author: user })
 user.createdGift.push(gift);
 await user.save()
 await gift.save()
-
-  console.log(user);
-  console.log(gift);
 res.json(gift)
 })
 
 router.get('/searchgift',async (req,res)=>{
   const gift=await Gift.find({flag:true}).populate('author')
-
   res.json(gift)
-
 })
 
 module.exports= router

@@ -14,7 +14,6 @@ router.post('/signin', async (req, res) => {
       res.locals.login = true;
       req.session.name = candidate.name 
       req.session.email = candidate.email 
-      // req.session.coin=candidate.coin
       res.json({
         success: true,
         message: 'User in'

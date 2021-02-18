@@ -6,7 +6,6 @@ router.get('/',(req,res)=>{
   }
   else 
    res.redirect('/signin')
-//res.render('index')
 })
 
 

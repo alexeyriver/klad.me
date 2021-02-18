@@ -4,13 +4,9 @@ const Gift = require('../../models/gift')
 
 router.get('/',async (req,res)=>{
   const user = await User.findOne({email: req.session.email}).populate('recievedGift')
- // console.log(user.recievedGift)
   let result=user.recievedGift.filter((el)=>{if (el.done=='finish') return el})
-  console.log(result)
   res.render('history',{result})
 })
-
-
 
 
 module.exports= router
