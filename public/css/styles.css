@@ -8,17 +8,23 @@ html, body, #map {
 body{
   background-image: url(../img/slide01.jpg);
   margin: 0;
-   background-attachment: fixed 
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 0;
+
+
+
 }
 
 nav{
- 
+  z-index: 3000;
   margin-bottom: 16px;
   background-color: black;
-    padding: 1px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  padding: 1px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 nav ul{
   display: flex;
@@ -68,9 +74,9 @@ input{
   height: 32px;
   background-color: black;
   color: whitesmoke;
- margin: 10px;
- border-color: black;
- outline: none;
+  margin: 10px;
+  border-color: black;
+  outline: none;
 }
 textarea{
   margin: 10px;
@@ -100,17 +106,20 @@ img{
 
 .routemap{
   max-width: 600px;
-  max-height: 450px;
+  max-height: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 420px;
 }
 
 #creategiftpost{
   display: flex;
-    justify-content: center;
-    flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 150px;
 }
 
 
@@ -125,5 +134,70 @@ input[type="file"] { display: none;}
 }
  
 
+#footer {
+  padding: .4rem 0 .4rem 0 ;
+  background: #000;
+  text-align: center;
+  flex: 0 0 auto;   
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 40;
+  
+  /* position: inherit */
+}
+
+  #footer a {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+    #footer a:hover {
+      color: #FFF;
+    }
+
+  #footer .copyright {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin: 0 0 .4rem 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 736px) {
+
+    #footer {
+      padding: 3rem 0 1rem 0 ;
+    }
+
+  }
 
 
+  .foot {
+		margin-left: auto;
+		margin-right: auto;
+	}
+  ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+  }
+
+    ul.icons li {
+      display: inline-block;
+      padding: 0 1rem 0 0;
+    }
+
+      ul.icons li:last-child {
+        padding-right: 0;
+      }
+
+      ul.icons li .icon:before {
+        font-size: 2rem;
+      }
+
+
+.inputsign{
+  display: flex;
+  justify-content: center;
+
+}
