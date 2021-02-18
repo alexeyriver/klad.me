@@ -20,6 +20,8 @@ form.addEventListener('submit', (e) => {
   if (!check) {
     document.body.append(mapdiv)
     ymaps.ready(init);
+    let yamap = document.querySelectorAll('ymaps')
+    console.log(yamap)
   }
 
 })

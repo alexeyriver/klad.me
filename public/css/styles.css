@@ -50,6 +50,8 @@ nav ul a:hover{
 }
 
 #createorsearch{
+  text-align: center;
+
   max-width: 980px;
   margin: 0 auto;
   display: flex;
@@ -111,13 +113,14 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   left: 420px;
 }
 
 #creategiftpost{
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin-bottom: 150px;
 }
@@ -127,6 +130,7 @@ input[type="file"] { display: none;}
 .file-drop {
     width: 120px;
     height: 25px;
+    padding: 0 64px;
     display: block;
     margin: 10px;
     background-color: black;
@@ -200,4 +204,14 @@ input[type="file"] { display: none;}
   display: flex;
   justify-content: center;
 
+}
+.createclass{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchclass{
+  display: flex;
+  justify-content: center;
 }
