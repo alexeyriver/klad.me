@@ -21,7 +21,7 @@ form.addEventListener('submit', async (e) => {
       const resphbs = await fetch('/template/login/invaliduseremail.hbs');
       const hbs = await resphbs.text();
       const template = Handlebars.compile(hbs);
-      let div = document.querySelector('.wrapper-auth')
+      let div = document.querySelector('.container-auth')
       let temp = template()
       if (div.innerHTML.match(temp)==null)
       { div.append(temp) }
