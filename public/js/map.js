@@ -26,7 +26,7 @@ async function init() {
     let loc = group.location.split(',')
     var placemark = new ymaps.Placemark(loc, { 
       balloonContentHeader: group.name ,
-      balloonContentBody: `<h4 style='color:black; background-color: white'>Автор:${group.author.name}</h4>`+
+      balloonContentBody: `<h4 style='color:black; background-color: white'>Автор: ${group.author.name}</h4>`+
       `<h4 style='color:black; background-color: white'> <p style='color:black; background-color: white'>Описание: Заблокировано!</p> Нажмите кнопку Взять клад, чтобы получить к нему доступ </h4>` +
      `<form action="/klad/${group._id}" method="GET"> <button type="submit">Взять клад</button></form>`
     },
@@ -143,6 +143,7 @@ function createfn() {
         body: formData
       })
       const frontResp = await resp.json()
+    
       let newDiv = document.createElement('div')
       let div = document.getElementById('createorsearch')
       let createClass = document.querySelector('.createclass')
@@ -158,4 +159,16 @@ function createfn() {
   })
 
 }
+
+
+// ///////////
+// let private = document.getElementById('private')
+// console.log(private);
+// private.addEventListener('submit',async (e)=>{
+// e.preventDefault()
+// console.log(e.target);
+// })
+
+
+
 

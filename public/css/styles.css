@@ -214,4 +214,29 @@ input[type="file"] { display: none;}
 .searchclass{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  flex-flow: wrap
+}
+
+#private{
+  margin-top: 15px;
+}
+
+.firstprivate{
+  display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: flex-end;
+  margin: 20px;
+}
+
+.submitcreate{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }

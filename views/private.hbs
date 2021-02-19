@@ -1,0 +1,23 @@
+<div class='flex'>
+<div class='firstprivate'>
+<div style='margin: 30px;'>
+  <div>
+
+    <h1>Приватный клад</h1>
+    <p>Найдите его на карте и заберите</p>
+    <h3>Автор клада: {{gift.author.name}}</h3>
+    <h3>Название: {{gift.name}}</h3>
+    <h3>Описание: {{gift.description}}</h3>
+    <h3>Координаты: {{gift.location}}</h3>
+  </div>
+  <img src="{{gift.img}}" alt="">
+
+  <input type="hidden" id="{{gift._id}}">
+</div>
+<div id="map" style="width: 500px; height: 350px ;margin: 20px;"></div>
+
+</div>
+</div>
+
+
+<script src="js/private.js"></script>

@@ -6,7 +6,7 @@ const path = require('path');
 const User = require('../../models/user')
 const Gift = require('../../models/gift')
 const storageConfig = multer.diskStorage({
-  destination: (req,file,cb)=>{
+  destination: (req, file, cb) => {
     cb(null, './public/uploads')
   },
   filename: (req, file, cb) => {
@@ -14,21 +14,33 @@ const storageConfig = multer.diskStorage({
   }
 });
 const uplooad = multer({ storage: storageConfig }).single('img');
- 
-router.post('/creategift',uplooad, async (req,res)=>{
-const user = await User.findOne({email:req.session.email})
-let imgurl= req.file.path.split('\\')[2]
-imgurl='uploads/'+imgurl
-const gift =  new Gift({name:req.body.name,description: req.body.description, location:req.body.coord, img: imgurl, author: user })
-user.createdGift.push(gift);
-await user.save()
-await gift.save()
-res.json(gift)
+
+router.post('/creategift', uplooad, async (req, res) => {
+  const user = await User.findOne({ email: req.session.email })
+  let imgurl = req.file.path.split('\\')[2]
+  imgurl = 'uploads/' + imgurl
+  console.log(req.body.private == "on");
+  if (req.body.private == 'on') {
+    const gift = new Gift({ name: req.body.name, description: req.body.description, location: req.body.coord, img: imgurl, author: user, private: true })
+    user.createdGift.push(gift);
+    await user.save()
+    await gift.save()
+    res.json(gift)
+  }
+  else {
+    const gift = new Gift({ name: req.body.name, description: req.body.description, location: req.body.coord, img: imgurl, author: user })
+    user.createdGift.push(gift);
+    await user.save()
+    await gift.save()
+    res.json(gift)
+  }
+
 })
 
-router.get('/searchgift',async (req,res)=>{
-  const gift=await Gift.find({flag:true}).populate('author')
+router.get('/searchgift', async (req, res) => {
+  const gift = await Gift.find({ flag: true, private: false }).populate('author')
+  console.log(gift);
   res.json(gift)
 })
 
-module.exports= router
+module.exports = router

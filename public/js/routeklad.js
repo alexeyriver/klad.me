@@ -14,14 +14,16 @@ form.addEventListener('submit', (e) => {
   coord[0] = Number(coord[0])
   coord[1] = Number(coord[1])
   let mapdiv = document.createElement('div')
+  let mapdiv2 = document.createElement('div')
+  mapdiv2.style='width: 300px; height: 200px;'
   mapdiv.id = 'map'
   mapdiv.className = 'routemap '
+  mapdiv.style='width: 500px; height: 650px;'
   let check = document.querySelector('.routemap')
   if (!check) {
     document.body.append(mapdiv)
     ymaps.ready(init);
-    let yamap = document.querySelectorAll('ymaps')
-    console.log(yamap)
+    document.body.append(mapdiv2)
   }
 
 })

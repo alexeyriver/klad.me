@@ -8,11 +8,13 @@ const session = require('./middleware/session')
 const giftRouter = require('./routes/gift/gift')
 const kladRouter = require('./routes/klad/klad')
 const historyRouter = require('./routes/history/history')
+const privateRouter= require('./routes/private/private')
 const app = express()
 middleware(app)
 app.use(session.sessionVariables)
 app.use('/',indexRouter,signinRouter,signupRouter,logoutRouter,giftRouter)
 app.use('/klad',kladRouter)
 app.use('/history',historyRouter)
+app.use('/private',privateRouter)
 module.exports= app
  
