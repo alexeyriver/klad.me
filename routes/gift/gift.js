@@ -19,7 +19,6 @@ router.post('/creategift', uplooad, async (req, res) => {
   const user = await User.findOne({ email: req.session.email })
   let imgurl = req.file.path.split('\\')[2]
   imgurl = 'uploads/' + imgurl
-  console.log(req.body.private == "on");
   if (req.body.private == 'on') {
     const gift = new Gift({ name: req.body.name, description: req.body.description, location: req.body.coord, img: imgurl, author: user, private: true })
     user.createdGift.push(gift);
@@ -39,7 +38,6 @@ router.post('/creategift', uplooad, async (req, res) => {
 
 router.get('/searchgift', async (req, res) => {
   const gift = await Gift.find({ flag: true, private: false }).populate('author')
-  console.log(gift);
   res.json(gift)
 })
 

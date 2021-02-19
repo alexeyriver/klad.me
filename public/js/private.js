@@ -1,7 +1,6 @@
-console.log('hihihihihihihi');
 
 let input = document.querySelector('input')
-console.log(input.id);
+
 
 async function init2() {
   let myMap = new ymaps.Map("map", {
@@ -12,7 +11,6 @@ async function init2() {
   let resmap = await mapfeta.json()
 
  
-  console.log(resmap);
  
     var collection = new ymaps.GeoObjectCollection(null, { preset: "islands#greenIcon" });
     myMap.geoObjects.add(collection);

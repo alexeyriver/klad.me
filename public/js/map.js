@@ -7,7 +7,6 @@ navigator.geolocation.getCurrentPosition((geo) => {
 })
 
 
-console.log('geo')
 async function init() {
   let myMap = new ymaps.Map("map", {
     center: [59.9984, 30.3210],
@@ -16,7 +15,6 @@ async function init() {
   let mapfeta = await fetch('/searchgift')
   let resmap = await mapfeta.json()
   var placemarks = [];
-  console.log(resmap);
   for (let el of resmap) {
     createMenuGroup(el)
   }
@@ -161,13 +159,6 @@ function createfn() {
 }
 
 
-// ///////////
-// let private = document.getElementById('private')
-// console.log(private);
-// private.addEventListener('submit',async (e)=>{
-// e.preventDefault()
-// console.log(e.target);
-// })
 
 
 

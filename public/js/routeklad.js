@@ -1,8 +1,6 @@
 
 let latitude, longitude, coord
 navigator.geolocation.getCurrentPosition((geo) => {
-  console.log(geo.coords.latitude)
-  console.log(geo.coords.longitude)
   latitude = geo.coords.latitude
   longitude = geo.coords.longitude
 })

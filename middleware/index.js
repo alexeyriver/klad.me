@@ -26,7 +26,7 @@ module.exports = function (app) {
     secret: 'klad',
     store: new FileStore(),
     cookie: {
-      maxAge: 1000000,
+      maxAge: 100000000,
       httpOnly: true
     }
   }))
