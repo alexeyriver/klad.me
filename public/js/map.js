@@ -103,7 +103,7 @@ create.addEventListener('submit', async (e) => {
 
 function createfn() {
   let myMap = new ymaps.Map('map', {
-    center: [latitude, longitude],
+    center: [latitude||59.9984 , longitude||30.3210],
     zoom: 15
   }, {
     searchControlProvider: 'yandex#search'
