@@ -2,17 +2,17 @@
   {{#if login}}
 
   <ul>
-    <a href="http://localhost:3000/">Главная</a>
-    <a href="http://localhost:3000/klad">Мои клады</a>
-    <a href="http://localhost:3000/history">История</a>
-    <a href="http://localhost:3000/logout">Выход</a>
+    <a href="{{process.env.CURR_URL}}/">Главная</a>
+    <a href="{{process.env.CURR_URL}}/klad">Мои клады</a>
+    <a href="{{process.env.CURR_URL}}/history">История</a>
+    <a href="{{process.env.CURR_URL}}/logout">Выход</a>
     <a id='coin' href="#">Coins: {{coin}}</a>
   </ul>
   
   {{else}}
   <ul>
-    <a href="http://localhost:3000/signin">Войти</a>
-    <a href="http://localhost:3000/signUp">Регистрация</a>
+    <a href="{{process.env.CURR_URL}}/signin">Войти</a>
+    <a href="{{process.env.CURR_URL}}/signUp">Регистрация</a>
   </ul>
 
   {{/if}}

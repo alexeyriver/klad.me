@@ -7,9 +7,10 @@ module.exports = function (app) {
   const path = require('path')
   const morgan = require('morgan')
   const mongoose = require('mongoose')
-
+  const dotenv = require('dotenv')
   mongoose.connect('mongodb://localhost:27017/klad', { useNewUrlParser: true, useUnifiedTopology: true });
 
+  dotenv.config()
   app.set('view engine', 'hbs')
   app.set('views', path.join(__dirname, '..', 'views'))   
   app.set(hbs.registerPartials(path.join(__dirname,'../views/partials')));
