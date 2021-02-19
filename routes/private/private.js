@@ -4,19 +4,20 @@ const Gift = require('../../models/gift')
 
 router.get('/', async (req, res) => {
   console.log('hello', req.query);
-  const gift = await Gift.findById(req.query.id).populate('author')
-  console.log(gift);
-  if (gift) {
+  try {
+    const gift = await Gift.findById(req.query.id).populate('author')
     res.render('private',{gift})
+  } catch (error) {
+    console.log(error.message);
+    res.render('errorid',{id:req.query.id}) 
   }
-  else { res.json({ status: false }) }
-
 })
+
+
 router.get('/map/:id', async (req, res) => {
   console.log( req.params.id);
   const gift = await Gift.findById(req.params.id)//.populate('author')
   console.log(gift);
-  
   res.json(gift) 
 })
 
